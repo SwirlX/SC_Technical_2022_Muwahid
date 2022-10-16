@@ -12,14 +12,13 @@ func main() {
 		OrgID: uuid.FromStringOrNil(folders.DefaultOrgID),
 	}
 
-	res, err := folders.GetAllFolders(req)
+	// res, err := folders.GetAllFolders(req)
+	res, err := folders.GetAllFoldersPaginated(req)
 	if err != nil {
 		fmt.Printf("%v", err)
 		return
 	}
 
-	// for _, el := range res.Folders {
-	// 	fmt.Println(el)
-	// }
 	folders.PrettyPrint(res)
+
 }
